@@ -69,7 +69,7 @@ def main(funds):
 if __name__ == '__main__':
     hl_sipp = 50000
     hl_stocks = 250
-    march_shares = 0
+    march_shares = 10000
 
     funds = hl_sipp + hl_stocks + march_shares
 
