@@ -14,49 +14,52 @@ def main(funds):
     # ----------
     # Categories
     # ----------
-    # High risk = 20%
-    target['crypto_category'] = funds * 0.05                # high risk
-    target['foreign_indices_category'] = 0.02 * funds       # high risk
-    target['silver_gold_miners_category'] = 0.1 * funds     # high risk
+    # High risk = 17%
+    target['@silver_gold_miners_category'] = 0.10 * funds     # high risk
+    target['@crypto_category'] = funds * 0.05                # high risk
+    target['@foreign_indices_category'] = 0.02 * funds       # high risk
 
-    # Medium risk = 80%
-    target['uranium_category'] = 0.08 * funds               # medium risk
-    target['electrification_category'] = 0.05 * funds       # medium risk
-    target['gold_silver_base_category'] = 0.7 * funds       # medium risk
+
+    # Medium risk = 83%
+    target['@gold_silver_base_category'] = 0.65 * funds       # medium risk
+    target['@uranium_category'] = 0.10 * funds               # medium risk
+    target['@electrification_category'] = 0.08 * funds       # medium risk
+
 
     # --------------
     # Sub-Categories
     # --------------
     # Base gold and silver
-    target['gdx_etf'] = 0.20 * target['gold_silver_base_category']
-    target['gdxj_etf'] = 0.20 * target['gold_silver_base_category']
-    target['paas_silver_producer'] = 0.20 * target['gold_silver_base_category']
-    target['hecla_silver_producer'] = 0.20 * target['gold_silver_base_category']
-    target['silg_etf'] = 0.20 * target['gold_silver_base_category']
+    target['gdx_etf'] = 0.20 * target['@gold_silver_base_category']
+    target['gdxj_etf'] = 0.20 * target['@gold_silver_base_category']
+    target['paas_silver_producer'] = 0.20 * target['@gold_silver_base_category']
+    target['hecla_silver_producer'] = 0.20 * target['@gold_silver_base_category']
+    target['silg_etf'] = 0.20 * target['@gold_silver_base_category']
 
     # Risky gold / silver miners
-    target['gold_miners_individual_shares'] = target['silver_gold_miners_category'] * 0.25
+    target['gold_miners_individual_shares'] = target['@silver_gold_miners_category'] * 0.25
     target['gold_miner_X_of_5'] = target['gold_miners_individual_shares'] * 0.2
-    target['silver_miners_individual_shares'] = target['silver_gold_miners_category'] * 0.75
+    target['silver_miners_individual_shares'] = target['@silver_gold_miners_category'] * 0.75
     target['silver_miner_X_of_10'] = target['silver_miners_individual_shares'] * 0.1
 
     # Crypto (Risky)
-    target['btc'] = target['crypto_category'] * 0.6
-    target['xmr'] = target['crypto_category'] * 0.4
+    target['btc'] = target['@crypto_category'] * 0.40
+    target['btc_miners'] = target['@crypto_category'] * 0.10
+    target['xmr'] = target['@crypto_category'] * 0.40
 
     # Uranium
-    target['uranium_sprott_physical_trust'] = target['uranium_category'] * 0.35
-    target['uranium_etf'] = target['uranium_category'] * 0.65
+    target['uranium_sprott_physical_trust'] = target['@uranium_category'] * 0.70
+    target['uranium_etf'] = target['@uranium_category'] * 0.30
 
     # Foreign ETFs - Market Sniper YouTube episode
-    target['israel_etf'] = target['foreign_indices_category'] * 0.3        # tech
-    target['singapore_etf'] = target['foreign_indices_category'] * 0.3     # china
-    target['saudi_etf'] = target['foreign_indices_category'] * 0.2
-    target['turkey_etf'] = target['foreign_indices_category'] * 0.2
+    target['israel_etf'] = target['@foreign_indices_category'] * 0.30        # tech
+    target['singapore_etf'] = target['@foreign_indices_category'] * 0.30     # china
+    target['saudi_etf'] = target['@foreign_indices_category'] * 0.20
+    target['turkey_etf'] = target['@foreign_indices_category'] * 0.20
 
     # Electrification / Green
-    target['ev_battery_etf'] = target['electrification_category'] * 0.5
-    target['copper_miners_etf'] = target['electrification_category'] * 0.5
+    target['ev_battery_etf'] = target['@electrification_category'] * 0.50
+    target['copper_miners_etf'] = target['@electrification_category'] * 0.50
 
     sipp_investec['sipp_vaulted_gold'] = 50000
     safe['gold_bullion'] = 20000
@@ -69,7 +72,7 @@ def main(funds):
 if __name__ == '__main__':
     hl_sipp = 50000
     hl_stocks = 250
-    march_shares = 10000
+    march_shares = 20000
 
     funds = hl_sipp + hl_stocks + march_shares
 

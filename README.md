@@ -9,7 +9,9 @@ name :
 description :
 type : 
 ticker : none, GDGB
+exchange : none, nyse,
 number_of_units :
+urgent : true false
 name_of_unit : troy_oz, GBP, token
 risk : X,H,M,L
 estimated_yield : % per annum
