@@ -15,16 +15,15 @@ def main(funds):
     # Categories
     # ----------
     # High risk = 17%
-    target['@silver_gold_miners_category'] = 0.10 * funds     # high risk
-    target['@crypto_category'] = funds * 0.05                # high risk
-    target['@foreign_indices_category'] = 0.02 * funds       # high risk
-
+    target['@silver_gold_miners_category'] = 0.10 * funds    # high risk
+    target['@crypto_category'] = funds * 0.04                # high risk
+    target['@foreign_indices_category'] = 0.01 * funds       # high risk
+    target['@carbon_credits_category'] = 0.02 * funds        # high risk
 
     # Medium risk = 83%
     target['@gold_silver_base_category'] = 0.65 * funds       # medium risk
     target['@uranium_category'] = 0.10 * funds               # medium risk
     target['@electrification_category'] = 0.08 * funds       # medium risk
-
 
     # --------------
     # Sub-Categories
@@ -47,9 +46,12 @@ def main(funds):
     target['btc_miners'] = target['@crypto_category'] * 0.10
     target['xmr'] = target['@crypto_category'] * 0.40
 
+    # Carbon Credits
+    target['carbon_credit_etf'] = target['@carbon_credits_category'] * 1.0
+
     # Uranium
-    target['uranium_sprott_physical_trust'] = target['@uranium_category'] * 0.70
-    target['uranium_etf'] = target['@uranium_category'] * 0.30
+    target['uranium_sprott_physical_trust'] = target['@uranium_category'] * 0.40
+    target['uranium_etf'] = target['@uranium_category'] * 0.60
 
     # Foreign ETFs - Market Sniper YouTube episode
     target['israel_etf'] = target['@foreign_indices_category'] * 0.30        # tech
@@ -72,9 +74,10 @@ def main(funds):
 if __name__ == '__main__':
     hl_sipp = 50000
     hl_stocks = 250
-    march_shares = 20000
+    march_shares = 5000
+    vf_cash_txfr = 100000
 
-    funds = hl_sipp + hl_stocks + march_shares
+    funds = hl_sipp + hl_stocks + march_shares + vf_cash_txfr
 
     target, sipp_investacc, safe = main(funds)
 
@@ -84,6 +87,7 @@ if __name__ == '__main__':
     print()
     print(f'H&L SIPP          : {hl_sipp}')
     print(f'H&L Stocks        : {hl_stocks}')
+    print(f'VF DB TXFR        : {vf_cash_txfr}')
     print(f'March Shares      : {march_shares}')
     print('-------------------------')
     print(f'TOTAL funds (GBP) : {funds}')

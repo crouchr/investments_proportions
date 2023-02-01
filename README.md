@@ -2,7 +2,9 @@ todo
 ----
 - calculate the amount to buy i.e. round allocations to nearest £5 and subtract H&L fee of 11.95 ?
 
-
+bugs
+----
+crypto allocation comes from own funds and not from pension sources - add in functionality
 
 asset :
 name :
